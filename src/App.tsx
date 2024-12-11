@@ -61,12 +61,14 @@ const App: React.FC = () => {
     <div className="App">
       <header className="App-header">
         {/* <img src={"./logo.png"} className="App-logo" alt="logo" /> */}
+        <h2 className='title' >Simulation propagation d’un feu de forêt</h2>
         {error && (
           <div style={{ color: 'red', margin: '15px', padding: '15px' }}>
             {error}
           </div>
         )}
-        {isLoading && <div>Loading...</div>}
+        <div className="isLoading"> {isLoading && <div>Loading...</div>} </div>
+        
       </header>
         <div className="play-ground">
           {grid.map((row, rowIndex) => (
@@ -86,10 +88,10 @@ const App: React.FC = () => {
           ))}
          <div className="bloc-button">
           <button onClick={stepSimulation} disabled={isLoading}>
-            Step Simulation
+            Step
           </button>
           <button onClick={resetSimulation} disabled={isLoading}>
-            Reset Simulation
+            Reset
           </button>
         </div>
         </div>

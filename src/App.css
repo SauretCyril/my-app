@@ -30,7 +30,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  background-color: rgb(163, 184, 223);
+  background-color: rgb(70, 231, 132);
   padding: 20px;
 }
 .App-link {
@@ -66,6 +66,14 @@
   font-size: 16px;
   margin-top: 20px;
 }
+.title {
+ /*  display: flex;
+  flex-wrap: wrap;  */
+  flex-direction: row;
+  font-size: 20px;
+  font-weight: bold;
+  color: #282c34;
+}
 .footer-container{
   background-color: #282c34;
   display: flex;
@@ -74,4 +82,15 @@
   justify-content: center;
   padding: 10px 0;
   background-color: white;
+}
+.isLoading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0); /* Optionnel : pour un fond semi-transparent */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 1000; /* Assurez-vous que l'élément est au-dessus des autres */
 }
