@@ -29,53 +29,76 @@ const App: React.FC = () => {
     fetchInitialGrid();
   }, []);
 
-    const stepSimulation = async () => {
-      setIsLoading(true);
-      try {
-        const response = await axios.post('http://localhost:8080/api/simulation/step');
-        setGrid(response.data as Grid);
-        setError('');
-      } catch (error) {
-        console.error('Error stepping simulation:', error);
-        setError('Failed to step simulation. Please try again.');
-      } finally {
-        setIsLoading(false);
-      }
-    };
-  //     });
-  // };
+  const stepSimulation = async () => {
+    setIsLoading(true);
+    try {
+      const response = await axios.post('http://localhost:8080/api/simulation/step');
+      setGrid(response.data as Grid);
+      setError('');
+    } catch (error) {
+      console.error('Error stepping simulation:', error);
+      setError('Failed to step simulation. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const resetSimulation = async () => {
+    setIsLoading(true);
+    try {
+      const response = await axios.get('http://localhost:8080/api/simulation/init');
+      setGrid(response.data as Grid);
+      setError('');
+    } catch (error) {
+      console.error('Error resetting simulation:', error);
+      setError('Failed to reset simulation. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="App">
       <header className="App-header">
-        <img src={"./logo.png"} className="App-logo" alt="logo" />
+        {/* <img src={"./logo.png"} className="App-logo" alt="logo" /> */}
         {error && (
-          <div style={{ color: 'red', margin: '10px', padding: '10px' }}>
+          <div style={{ color: 'red', margin: '15px', padding: '15px' }}>
             {error}
           </div>
         )}
         {isLoading && <div>Loading...</div>}
-        <div>
+      </header>
+        <div className="play-ground">
           {grid.map((row, rowIndex) => (
             <div key={rowIndex} style={{ display: 'flex' }}>
               {row.map((cell, cellIndex) => (
                 <div
                   key={cellIndex}
                   style={{
-                    width: 20,
-                    height: 20,
-                    backgroundColor: cell === 1 ? 'red' : cell === 2 ? 'gray' : 'green',
+                    width: 30,
+                    height: 30,
+                    backgroundColor: cell === 1 ? 'red' : cell === 2 ? 'black' : cell ===3 ? 'orange' :'green',
                     border: '1px solid black'
                   }}
                 ></div>
               ))}
             </div>
           ))}
+         <div className="bloc-button">
+          <button onClick={stepSimulation} disabled={isLoading}>
+            Step Simulation
+          </button>
+          <button onClick={resetSimulation} disabled={isLoading}>
+            Reset Simulation
+          </button>
         </div>
-        <button onClick={stepSimulation} disabled={isLoading}>
-          Step Simulation
-        </button>
-      </header>
+        </div>
+        <div className="footer-container" >
+          <p>Developed by cyril SAURET</p>
+        </div>
+        
+       
+     
     </div>
   );
 };
