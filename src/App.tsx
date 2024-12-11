@@ -61,7 +61,7 @@ const App: React.FC = () => {
     <div className="App">
       <header className="App-header">
         {/* <img src={"./logo.png"} className="App-logo" alt="logo" /> */}
-        <h2 className='title' >Simulation propagation d’un feu de forêt</h2>
+        <h2 className='title' >Simulation of the spread of a forest fire</h2>
         {error && (
           <div style={{ color: 'red', margin: '15px', padding: '15px' }}>
             {error}
