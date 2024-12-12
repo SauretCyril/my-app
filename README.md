@@ -12,20 +12,24 @@ This application simulates forest fires using a backend built with Spring Boot a
 - Node.js and npm
 - Maven
 
-### Steps local developement running
+### Steps
+
 1. Clone the repository:
    ```sh
    git clone https://github.com/SauretCyril/myForestSpringFire.git
-2. Build backend
-   - Navigate to the backend directory: cd myForestSpringFire
-   - Build the backend using Maven:
-     ```sh
-     mvn clean install
+   cd myForestSpringFire
    ```
+2. Build backend
+   - Navigate to the backend directory: root of project
+   - Build the backend using Maven:
+    ```sh
+     mvn clean install
+    ```
 3.Build frontend
    - Navigate to the frontend directory: cd myForestSpringFire/frontend
    - Install dependencies:
      ```sh
+     cd my-app
      npm install
      ```
 ## Running the Application in local mode
