@@ -95,12 +95,7 @@ const App: React.FC = () => {
           </button>
         </div>
         </div>
-        <div className="footer-container" >
-          <p>Developed by cyril SAURET</p>
-        </div>
-        
-       
-     
+
     </div>
   );
 };
