@@ -1,3 +1,117 @@
+# Forest Fire Simulation Application
+
+## Overview
+
+This application simulates forest fires using a backend built with Spring Boot and a frontend built with React. The backend handles the simulation logic and provides REST endpoints, while the frontend displays the simulation grid and allows user interaction.
+
+## Application Installation
+
+### Prerequisites
+
+- Java 11 or higher
+- Node.js and npm
+- Maven
+
+### Steps local developement running
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/SauretCyril/myForestSpringFire.git
+2. Build backend
+   - Navigate to the backend directory: cd myForestSpringFire
+   - Build the backend using Maven:
+     ```sh
+     mvn clean install
+   ```
+3.Build frontend
+   - Navigate to the frontend directory: cd myForestSpringFire/frontend
+   - Install dependencies:
+     ```sh
+     npm install
+     ```
+## Running the Application in local mode
+
+### Backend
+
+1. Navigate to the project root directory.
+2. Use the Maven Wrapper to start the backend:
+   ```sh
+   ./mvnw spring-boot:run
+   ```
+
+3. Navigate to the frontend directory
+    ```sh
+    cd my-app
+    npm start
+    ```
+
+## Architecture
+
+### Backend (Spring Boot)
+
+- **Main Files:**
+  - `DemoApplication.java`: Entry point of the Spring Boot application.
+  - `SimulationController.java`: REST controller for handling simulation endpoints.
+  - `ForestFireSimulation.java`: Class for the forest fire simulation logic.
+  - `SimulationConfig.java`: Configuration class for the simulation.
+  - `SwaggerConfig.java`: Configuration for Swagger/OpenAPI.
+
+- **Configuration:**
+  - `application.properties`: Configuration for the Spring Boot application.
+  - `config.json`: Configuration file for the simulation.
+
+- **Tests:**
+  - `DemoApplicationTests.java`: Test class to verify the Spring context loading.
+
+### Frontend (React)
+
+- **Main Files:**
+  - `App.tsx`: Main component of the React application.
+  - `index.tsx`: Entry point of the React application.
+  - `App.css`: CSS styles for the application.
+
+- **Configuration:**
+  - `package.json`: Dependencies and scripts for the React project.
+  - `tsconfig.json`: TypeScript configuration for the React project.
+
+- **Public:**
+  - `index.html`: Main HTML file for the React frontend.
+  - `manifest.json`: Web application manifest file.
+
+## Features
+
+### Backend
+
+- **REST Endpoints:**
+  - `GET /api/simulation/init`: Initializes the forest fire simulation.
+  - `POST /api/simulation/step`: Advances the simulation by one step.
+
+- **Simulation Logic:**
+  - The `ForestFireSimulation` class handles the logic for simulating forest fires.
+
+### Frontend
+
+- **Grid Display:**
+  - The `App.tsx` component displays the simulation grid and provides buttons for controlling the simulation ("Step" and "Reset").
+
+- **API Calls:**
+  - Uses axios to communicate with the Spring Boot backend.
+
+## Dependencies
+
+### Backend
+
+- Spring Boot (Web, Test)
+- H2 Database
+- Jackson (for JSON serialization/deserialization)
+- Springdoc OpenAPI (Swagger)
+
+### Frontend
+
+- React
+- Axios (for API calls)
+- TypeScript
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
